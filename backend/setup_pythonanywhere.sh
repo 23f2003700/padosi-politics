@@ -11,8 +11,8 @@ echo ""
 
 # Variables
 PROJECT_DIR="$HOME/padosi-politics/backend"
-VENV_NAME="padosi-env"
-PYTHON_VERSION="3.10"
+VENV_DIR="$HOME/.virtualenvs/padosi-env"
+PYTHON_VERSION="python3.10"
 FRONTEND_URL="https://padosi-politics.pages.dev"
 
 # Navigate to project
@@ -20,13 +20,16 @@ cd "$PROJECT_DIR"
 echo "📁 Working directory: $(pwd)"
 
 # Create virtualenv if not exists
-if [ ! -d "$HOME/.virtualenvs/$VENV_NAME" ]; then
+if [ ! -d "$VENV_DIR" ]; then
     echo "🐍 Creating virtual environment..."
-    mkvirtualenv $VENV_NAME --python=/usr/bin/python$PYTHON_VERSION
+    $PYTHON_VERSION -m venv $VENV_DIR
 else
-    echo "🐍 Activating existing virtual environment..."
-    workon $VENV_NAME
+    echo "🐍 Virtual environment already exists"
 fi
+
+# Activate virtualenv
+echo "🐍 Activating virtual environment..."
+source $VENV_DIR/bin/activate
 
 # Install dependencies
 echo "📦 Installing dependencies..."
@@ -102,15 +105,15 @@ echo "1️⃣  Go to Web tab in PythonAnywhere dashboard"
 echo ""
 echo "2️⃣  Set these values:"
 echo "    Source code: $PROJECT_DIR"
-echo "    Virtualenv: $HOME/.virtualenvs/$VENV_NAME"
+echo "    Virtualenv: $VENV_DIR"
 echo ""
 echo "3️⃣  Edit WSGI file and replace with:"
 echo "----------------------------------------"
-cat << 'WSGIEOF'
+cat << WSGIEOF
 import sys
 import os
 
-project_home = '/home/YOUR_USERNAME/padosi-politics/backend'
+project_home = '/home/$USER/padosi-politics/backend'
 if project_home not in sys.path:
     sys.path.insert(0, project_home)
 
@@ -123,7 +126,6 @@ from app import create_app
 application = create_app('production')
 WSGIEOF
 echo "----------------------------------------"
-echo "(Replace YOUR_USERNAME with: $USER)"
 echo ""
 echo "4️⃣  Click RELOAD button"
 echo ""
