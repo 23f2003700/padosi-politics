@@ -1,0 +1,31 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Resident with home -->
+  <!-- House roof -->
+  <path d="M60 15L15 50H25V95H95V50H105L60 15Z" fill="url(#residentGradient)" fill-opacity="0.15" stroke="url(#residentGradient)" stroke-width="3" stroke-linejoin="round"/>
+  
+  <!-- Door -->
+  <rect x="50" y="60" width="20" height="35" rx="2" fill="url(#residentGradient)" fill-opacity="0.3" stroke="url(#residentGradient)" stroke-width="2"/>
+  
+  <!-- Door handle -->
+  <circle cx="66" cy="80" r="2.5" fill="url(#residentGradient)"/>
+  
+  <!-- Windows -->
+  <rect x="32" y="55" width="14" height="14" rx="2" fill="url(#residentGradient)" fill-opacity="0.3" stroke="url(#residentGradient)" stroke-width="2"/>
+  <rect x="74" y="55" width="14" height="14" rx="2" fill="url(#residentGradient)" fill-opacity="0.3" stroke="url(#residentGradient)" stroke-width="2"/>
+  
+  <!-- Window crosses -->
+  <line x1="39" y1="55" x2="39" y2="69" stroke="url(#residentGradient)" stroke-width="1.5"/>
+  <line x1="32" y1="62" x2="46" y2="62" stroke="url(#residentGradient)" stroke-width="1.5"/>
+  <line x1="81" y1="55" x2="81" y2="69" stroke="url(#residentGradient)" stroke-width="1.5"/>
+  <line x1="74" y1="62" x2="88" y2="62" stroke="url(#residentGradient)" stroke-width="1.5"/>
+  
+  <!-- Heart in house -->
+  <path d="M60 42C56 38 50 38 50 44C50 50 60 56 60 56C60 56 70 50 70 44C70 38 64 38 60 42Z" fill="url(#residentGradient)"/>
+  
+  <defs>
+    <linearGradient id="residentGradient" x1="15" y1="15" x2="105" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#16a34a"/>
+    </linearGradient>
+  </defs>
+</svg>

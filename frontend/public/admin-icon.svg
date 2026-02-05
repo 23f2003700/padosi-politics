@@ -1,0 +1,18 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Admin Shield -->
+  <path d="M60 10L20 30V55C20 82.5 36.5 107.5 60 115C83.5 107.5 100 82.5 100 55V30L60 10Z" fill="url(#adminGradient)" fill-opacity="0.15"/>
+  <path d="M60 10L20 30V55C20 82.5 36.5 107.5 60 115C83.5 107.5 100 82.5 100 55V30L60 10Z" stroke="url(#adminGradient)" stroke-width="3" fill="none"/>
+  
+  <!-- Crown -->
+  <path d="M40 55L45 40L52.5 50L60 35L67.5 50L75 40L80 55H40Z" fill="url(#adminGradient)"/>
+  
+  <!-- Star in shield -->
+  <path d="M60 62L64.5 71.5L75 73L67.5 80L69.5 90.5L60 85.5L50.5 90.5L52.5 80L45 73L55.5 71.5L60 62Z" fill="url(#adminGradient)"/>
+  
+  <defs>
+    <linearGradient id="adminGradient" x1="20" y1="10" x2="100" y2="115" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+</svg>

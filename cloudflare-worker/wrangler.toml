@@ -1,0 +1,16 @@
+name = "padosi-politics-cron"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# Cron triggers - runs multiple times daily
+[triggers]
+crons = [
+  "0 2 * * *",   # 2 AM UTC - Main cleanup
+  "0 8 * * *",   # 8 AM UTC - Morning escalation check
+  "0 14 * * *",  # 2 PM UTC - Afternoon reminders
+  "0 20 * * *"   # 8 PM UTC - Evening check
+]
+
+# Environment variables (set in Cloudflare Dashboard for security)
+# BACKEND_URL = "https://YOUR_PA_USERNAME.pythonanywhere.com"
+# CRON_SECRET = "your-secret-here"
