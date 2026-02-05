@@ -109,15 +109,15 @@ class ProductionConfig(Config):
     DEBUG = False
     
     # Support both PostgreSQL (Render) and SQLite
-    @property
-    def SQLALCHEMY_DATABASE_URI(self):
-        database_url = os.environ.get('DATABASE_URL')
-        if database_url:
-            # Render uses postgresql:// but SQLAlchemy needs postgresql://
-            if database_url.startswith('postgres://'):
-                database_url = database_url.replace('postgres://', 'postgresql://', 1)
-            return database_url
-        return 'sqlite:///' + os.path.join(os.path.dirname(os.path.abspath(__file__)), 'padosi_prod.db')
+    # Get database URL from environment or use SQLite
+    _db_url = os.environ.get('DATABASE_URL')
+    if _db_url:
+        # Render uses postgres:// but SQLAlchemy needs postgresql://
+        if _db_url.startswith('postgres://'):
+            _db_url = _db_url.replace('postgres://', 'postgresql://', 1)
+        SQLALCHEMY_DATABASE_URI = _db_url
+    else:
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(os.path.dirname(os.path.abspath(__file__)), 'padosi_prod.db')
     
     # CORS - Allow Cloudflare Pages domain and PythonAnywhere
     CORS_ORIGINS = [
