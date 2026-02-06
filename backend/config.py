@@ -119,12 +119,18 @@ class ProductionConfig(Config):
     else:
         SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(os.path.dirname(os.path.abspath(__file__)), 'padosi_prod.db')
     
-    # CORS - Allow Cloudflare Pages domain and PythonAnywhere
+    # CORS - Allow Cloudflare Pages domain, PythonAnywhere, and Mobile Apps
     CORS_ORIGINS = [
         'https://padosi-politics.pages.dev',
         'https://*.padosi-politics.pages.dev',  # Preview deployments
         'https://padosipolitics.com',
         'https://www.padosipolitics.com',
+        # Mobile App (Capacitor) origins
+        'capacitor://localhost',
+        'http://localhost',
+        'https://localhost',
+        'ionic://localhost',
+        '*',  # Allow all origins for mobile apps (API is protected by JWT)
         os.environ.get('FRONTEND_URL', 'http://localhost:5173')
     ]
     

@@ -59,13 +59,16 @@ def initialize_extensions(app):
     # Setup JWT
     jwt.init_app(app)
     
-    # Setup CORS
+    # Setup CORS - Allow all origins for API (protected by JWT)
+    # Mobile apps (Capacitor) need permissive CORS
     CORS(app, resources={
         r"/api/*": {
-            "origins": app.config.get('CORS_ORIGINS', ['http://localhost:5173', 'http://localhost:8080']),
+            "origins": "*",  # Allow all - API is protected by JWT authentication
             "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-            "allow_headers": ["Content-Type", "Authorization", "X-Requested-With"],
-            "supports_credentials": True
+            "allow_headers": ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"],
+            "expose_headers": ["Content-Type", "Authorization"],
+            "supports_credentials": False,  # Must be False when using * origin
+            "max_age": 86400  # Cache preflight for 24 hours
         }
     })
     

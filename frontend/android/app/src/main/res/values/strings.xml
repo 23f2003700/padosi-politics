@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Padosi Politics</string>
+    <string name="title_activity_main">Padosi Politics</string>
+    <string name="package_name">com.padosipolitics.app</string>
+    <string name="custom_url_scheme">com.padosipolitics.app</string>
+</resources>
